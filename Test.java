@@ -1,11 +1,26 @@
-//Test.java
-
-import java.util.Arrays;
-
 public class Test {
     public static void main(String[] args) {
-        Integer[] array = {10,8,-33,7,21,78};
-        Util.bubbleSort(array);
-        System.out.println(Arrays.toString(array));
+        SingleLinkedList list = new SingleLinkedList();
+        list.createLinkedList();
+        list.display();
+/*        System.out.println("//////////////////////");
+        System.out.println("头插");
+        list.addFirst(999);
+        list.display();
+        System.out.println("//////////////////////");
+        System.out.println("尾插");
+        list.addLast(666666);
+        list.display();*/
+/*        System.out.println("//////////////////////");*/
+ /*       System.out.println("求长度");
+        System.out.println(list.size());*/
+//        try {
+/*            list.addIndex(9, 888);
+        }catch (IndexOutOfBoundException e) {
+            e.printStackTrace();
+        }
+        list.display();*/
+        list.reverseList();
+        list.display();
     }
 }
