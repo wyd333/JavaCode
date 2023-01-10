@@ -1,26 +1,35 @@
+/**
+ * Created with IntelliJ IDEA.
+ * Description:
+ * User: 12569
+ * Date: 2023-01-10
+ * Time: 14:59
+ */
 public class Test {
     public static void main(String[] args) {
-        SingleLinkedList list = new SingleLinkedList();
+        SingleList list = new SingleList();
         list.createLinkedList();
         list.display();
-/*        System.out.println("//////////////////////");
-        System.out.println("头插");
-        list.addFirst(999);
+        System.out.println(list.size());
+        list.addFirst(56);
         list.display();
-        System.out.println("//////////////////////");
-        System.out.println("尾插");
-        list.addLast(666666);
-        list.display();*/
-/*        System.out.println("//////////////////////");*/
- /*       System.out.println("求长度");
-        System.out.println(list.size());*/
-//        try {
-/*            list.addIndex(9, 888);
+        System.out.println(list.size());
+        list.addLast(888);
+        list.display();
+        try {
+            list.addIndex(0, 56);
+            list.display();
         }catch (IndexOutOfBoundException e) {
             e.printStackTrace();
         }
-        list.display();*/
-        list.reverseList();
+        System.out.println(list.contains(28));
+        list.removeAllKey(56);
+        list.display();
+        list.remove(67);
+        list.remove(45);
+        list.remove(34);
+        list.display();
+        list.reverse();
         list.display();
     }
 }
