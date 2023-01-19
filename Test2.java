@@ -1,35 +1,49 @@
+import java.util.Scanner;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:
  * User: 12569
- * Date: 2023-01-18
- * Time: 20:03
+ * Date: 2023-01-19
+ * Time: 12:28
  */
-
-//3、设计一个日期类
-//定义类的构造方法对日期进行初始化，
-// 在toString()中将其输出格式定为“月/日/年”。
-// 最后，编写一个测试程序来测试所定义的日期类能否实现预定的功能.
 public class Test2 {
+    public static int getComDivisor(int a , int b){
+        if(a % b == 0) {
+            return b;
+        }
+        return getComDivisor(b,a%b);
+    }
+
     public static void main(String[] args) {
-        MyDate date = new MyDate(2023,1,18);
-        System.out.println(date);
+        Scanner reader = new Scanner(System.in);
+
+        //输入两个数
+        int n = reader.nextInt();
+        int m = reader.nextInt();
+
+        System.out.println(getComDivisor(n,m));
     }
-}
+    public static void main1(String[] args) {
+        //辗转相除法求最大公约数、最小公倍数
+        Scanner reader = new Scanner(System.in);
 
-class MyDate{
-    private int year;
-    private int month;
-    private int day;
+        //输入两个数
+        int n = reader.nextInt();
+        int m = reader.nextInt();
 
-    public MyDate(int year, int month, int day) {
-        this.year = year;
-        this.month = month;
-        this.day = day;
-    }
+/*因为求最大公约数和最小公倍数都需要用到m、n，且辗转相除的过程会改变n、m的值，
+故再创建两个变量n2、m2，把m和n的值拷贝一份再做运算*/
+        int m2 = m;
+        int n2 = n;
 
-    @Override
-    public String toString() {
-        return month+"/"+day+"/"+year;
+        int r = n2 % m2;
+        //最大公约数
+        while (r != 0) {
+            n2 = m2;
+            m2 = r;    //注意：m2才是所求的最大公约数的结果，而不是r
+            r = n2 % m2;
+        }
+        System.out.println(m2);
     }
 }
