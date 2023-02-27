@@ -1,26 +1,41 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:
  * User: 12569
- * Date: 2023-02-18
- * Time: 10:06
+ * Date: 2023-02-27
+ * Time: 13:37
  */
 public class Test {
-    public static void main(String[] args) {
-/*        System.out.println(-7/2);
-        System.out.println(7/2);*/
-        //判断素数
-        for(int num = 2; num <= 50; num++) {
-            boolean flag = true;
-            for(int i = 2; i <= Math.sqrt(num); i++) {
-                if(num % i == 0) {
-                    flag = false;
-                    break;
-                }
-            }
-            if(flag) {
-                System.out.print(num + " ");
-            }
-        }
+    public static void quickSort(int[] array) {
+        quick(array,0,array.length-1);
     }
+    private static void quick(int[] array, int start, int end) {
+        if (start >= end) {
+            return;
+        }
+
+        int pivot = partition(array,start,end);
+        quick(array,start,pivot-1);
+        quick(array,pivot+1, end);
+    }
+    private static int partition(int[] array, int left, int right) {
+        int tmp = array[left];
+        while(left < right) {
+            while(left < right && array[right] >= tmp) {
+                right--;
+            }
+            array[left] = array[right];
+            while(left < right && array[left] <= tmp) {
+                left++;
+            }
+            array[right] = array[left];
+        }
+        array[left] = tmp;
+        return left;
+    }
+
+
 }
